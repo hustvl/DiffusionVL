@@ -8,9 +8,8 @@
 
 <sup>1</sup>Huazhong University of Science and Technology
 
-<sup>*</sup>equal Contribution, <sup>:email:</sup>corresponding author, xgwang@hust.edu.cn
+<sup>*</sup>equal contribution, <sup>:email:</sup>corresponding author, xgwang@hust.edu.cn
 
-<!-- [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/...)](https://paperswithcode.com/...) -->
 [![arXiv](https://img.shields.io/badge/arXiv-DiffusionVL-b31b1b.svg)](https://arxiv.org/abs/2503.xxxxx) <a href="https://huggingface.co/collections/hustvl/DiffusionVL"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue" alt="Hugging Face"></a>
 
 </div>
