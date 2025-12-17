@@ -57,6 +57,8 @@ torchvision==0.21.0
 torchaudio==2.6.0
 transformers==4.55.0
 accelerate==1.10.1
+pillow==10.4.0
+requests=2.32.5
 ```
 
 - **Quick Start:**
