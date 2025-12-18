@@ -10,7 +10,7 @@
 
 <sup>*</sup>equal contribution, <sup>:email:</sup>corresponding author, xgwang@hust.edu.cn
 
-[![arXiv](https://img.shields.io/badge/arXiv-DiffusionVL-b31b1b.svg)](https://arxiv.org/abs/2503.xxxxx) <a href="https://huggingface.co/collections/hustvl/diffusionvl"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue" alt="Hugging Face"></a>
+[![arXiv](https://img.shields.io/badge/arXiv-DiffusionVL-b31b1b.svg)](https://arxiv.org/abs/2512.15713) <a href="https://huggingface.co/collections/hustvl/diffusionvl"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue" alt="Hugging Face"></a>
 
 </div>
 
@@ -117,10 +117,13 @@ This repo is mainly built on [Qwen2.5-VL](https://github.com/QwenLM/Qwen3-VL), [
 ## 📝 Citation
 If you find our work useful, please cite our paper:
 ```
-@article{zeng2025diffusionvl,
-  title={DiffusionVL: Translating Any Autoregressive Models into Diffusion Vision Language Models},
-  author={Zeng, Lunbin and Yao, Jingfeng and Liao, Bencheng and Tao, Hongyuan and Liu, Wenyu and Wang, Xinggang},
-  journal={arXiv preprint arXiv:2503.xxxxx},
-  year={2025}
+@misc{zeng2025diffusionvltranslatingautoregressivemodels,
+      title={DiffusionVL: Translating Any Autoregressive Models into Diffusion Vision Language Models}, 
+      author={Lunbin Zeng and Jingfeng Yao and Bencheng Liao and Hongyuan Tao and Wenyu Liu and Xinggang Wang},
+      year={2025},
+      eprint={2512.15713},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2512.15713}, 
 }
 ```
