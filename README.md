@@ -18,6 +18,13 @@
 
 - **[2025.12.18]** 🎉 Our paper **DiffusionVL** is released on arXiv! And we release the DiffusionVL models translated from Qwen2.5VL at huggingface. The training code and more models are comming soon!
 
+## 🚀 Release Plan
+- [x]  Release paper
+- [x]  Release DiffusionVL model weights (translated from AR-VLMs)
+- [ ]  Release DiffusionVL model weights (translated from AR-LMs)
+- [ ]  Release evaluation code
+- [ ]  Release training code
+
 ## 📄 Introduction
 
 The diffusion paradigm has emerged as a promising alternative to autoregressive (AR) models, offering the potential for efficient parallel decoding. However, existing diffusion vision language models (dVLMs) largely lag behind mainstream autoregressive vision language models in performance, primarily due to the capability limitations of their base diffusion language models.
