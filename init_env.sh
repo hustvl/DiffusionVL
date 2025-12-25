@@ -1,4 +1,4 @@
-pip install -r requirements.txt -y
+pip install -r requirements.txt
 cd eval/lmms-eval
 pip install --no-deps -U -e .
 cd ../..
