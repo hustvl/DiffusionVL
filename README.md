@@ -16,7 +16,7 @@
 
 ## 📰 News
 
-- **[2025.12.25]** 🎄 We open-source all training and evaluation code along with DiffusionVL model weights (translated from AR-LMs). Time to play with DiffusionVL!
+- **[2025.12.25]** 🎄 We have completed our release plan ahead of schedule. **DiffusionVL is now fully open-sourced.** Merry Christmas to the community!
 - **[2025.12.18]** 🎉 Our paper **DiffusionVL** is released on arXiv! We also release the DiffusionVL models translated from Qwen2.5VL on Hugging Face.
 
 ## 🚀 Release Plan
