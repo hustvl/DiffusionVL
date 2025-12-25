@@ -16,14 +16,15 @@
 
 ## 📰 News
 
-- **[2025.12.18]** 🎉 Our paper **DiffusionVL** is released on arXiv! And we release the DiffusionVL models translated from Qwen2.5VL at huggingface. The training code and more models are comming soon!
+- **[2025.12.25]** 🎄 We open-source all training and evaluation code along with DiffusionVL model weights (translated from AR-LMs). Time to play with DiffusionVL!
+- **[2025.12.18]** 🎉 Our paper **DiffusionVL** is released on arXiv! We also release the DiffusionVL models translated from Qwen2.5VL on Hugging Face.
 
 ## 🚀 Release Plan
 - [x]  Release paper
 - [x]  Release DiffusionVL model weights (translated from AR-VLMs)
-- [ ]  Release DiffusionVL model weights (translated from AR-LMs)
-- [ ]  Release evaluation code
-- [ ]  Release training code
+- [x]  Release DiffusionVL model weights (translated from AR-LMs)
+- [x]  Release evaluation code
+- [x]  Release training code
 
 ## 📄 Introduction
 
@@ -44,93 +45,29 @@ DiffusionVL bridges this gap by answering a fundamental question: ***Can we dire
 <img src="assets/framework.png" alt="Framework" width="800">
 </div>
 
+## 🚀 Get Started
 
+| Document | Description |
+| :--- | :--- |
+| [Installation](docs/INSTALLATION.md) | Environment setup, data and model preparation |
+| [Training & Evaluation](docs/TRAINING_EVALUATION.md) | Train and evaluate DiffusionVL models |
+| [Inference](docs/INFERENCE.md) | Quick inference with pre-trained models |
 
-### 🎯 Inference with Pre-trained Models
-
-- **Download Pre-trained Models:**
-
-| Model | Base Model | Download |
-| :--- | :---  | :--- |
-| **DiffusionVL-Qwen2.5VL-3B** | Qwen2.5-VL-3B | [HuggingFace](https://huggingface.co/hustvl/DiffusionVL-Qwen2.5VL-3B) |
-| **DiffusionVL-Qwen2.5VL-7B** | Qwen2.5-VL-7B | [HuggingFace](https://huggingface.co/hustvl/DiffusionVL-Qwen2.5VL-7B) |
-
-- **Environment Setup:**
-  
-The core environments are list as follows:
-```
-torch==2.6.0
-torchvision==0.21.0
-torchaudio==2.6.0
-transformers==4.55.0
-accelerate==1.10.1
-pillow==10.4.0
-requests=2.32.5
-```
-
-- **Quick Start:**
-
-```python
-from transformers import AutoModelForCausalLM, AutoProcessor
-import torch
-
-# Load model with trust_remote_code
-model = AutoModelForCausalLM.from_pretrained(
-    "hustvl/DiffusionVL-Qwen2.5VL-7B",
-    torch_dtype=torch.bfloat16,
-    device_map="auto",
-    trust_remote_code=True
-)
-
-# Load processor (includes tokenizer)
-processor = AutoProcessor.from_pretrained("hustvl/DiffusionVL-Qwen2.5VL-7B", trust_remote_code=True)
-
-from PIL import Image
-import requests
-
-url = "https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-VL/assets/demo.jpeg"
-image = Image.open(requests.get(url, stream=True).raw).convert("RGB")
-messages = [
-    {"role": "user", "content": [
-        {"type": "image"},
-        {"type": "text", "text": "Describe this image."}
-    ]}
-]
-text = processor.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-inputs = processor(text=[text], images=[image], return_tensors="pt", padding=True)
-inputs = {k: v.to(model.device) if hasattr(v, 'to') else v for k, v in inputs.items()}
-
-# Generate with diffusion
-output_ids = model.generate(
-    inputs=inputs["input_ids"],
-    images=inputs.get("pixel_values"),
-    image_grid_thws=inputs.get("image_grid_thw"),
-    gen_length=128,
-    steps=8,
-    temperature=0.0,
-    remasking_strategy="low_confidence_static",
-)
-
-# Decode output
-output_text = processor.decode(output_ids[0], skip_special_tokens=True)
-print(output_text)
-
-```
 
 ## ❤️ Acknowledgements
 
-This repo is mainly built on [Qwen2.5-VL](https://github.com/QwenLM/Qwen3-VL), [LLaDA-V](https://github.com/ML-GSAI/LLaDA-V), [BD3LMs](https://github.com/kuleshov-group/bd3lms) and [SDAR](https://github.com/JetAstra/SDAR). We thank the authors for their open-source contributions.
+This repo is mainly built on [Qwen2.5-VL](https://github.com/QwenLM/Qwen3-VL), [LLaDA-V](https://github.com/ML-GSAI/LLaDA-V), [BD3LMs](https://github.com/kuleshov-group/bd3lms) and [SDAR](https://github.com/JetAstra/SDAR), [lmms-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval). We thank the authors for their open-source contributions.
 
 ## 📝 Citation
 If you find our work useful, please cite our paper:
 ```
 @misc{zeng2025diffusionvltranslatingautoregressivemodels,
-      title={DiffusionVL: Translating Any Autoregressive Models into Diffusion Vision Language Models}, 
+      title={DiffusionVL: Translating Any Autoregressive Models into Diffusion Vision Language Models},
       author={Lunbin Zeng and Jingfeng Yao and Bencheng Liao and Hongyuan Tao and Wenyu Liu and Xinggang Wang},
       year={2025},
       eprint={2512.15713},
       archivePrefix={arXiv},
       primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2512.15713}, 
+      url={https://arxiv.org/abs/2512.15713},
 }
 ```
