@@ -16,6 +16,7 @@
 
 ## 📰 News
 
+- **[2026.07.08]** 🎉 DiffusionVL is accepted by ECCV 2026!
 - **[2025.12.25]** 🎄 We have completed our release plan ahead of schedule. **DiffusionVL is now fully open-sourced.** Merry Christmas to the community!
 - **[2025.12.18]** 🎉 Our paper **DiffusionVL** is released on arXiv! We also release the DiffusionVL models translated from Qwen2.5VL on Hugging Face.
 
